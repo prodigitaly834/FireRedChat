@@ -1,0 +1,16 @@
+cn2an>=0.5.23
+fastapi==0.104.1
+kaldi_native_fbank>=1.15
+kaldiio>=2.18.0
+numpy>=1.26.1
+peft>=0.13.2
+python-json-logger==2.0.7
+python-multipart==0.0.6
+sentencepiece
+soundfile==0.12.1
+speechbrain
+textgrid
+torch>=2.1.0
+torchaudio>=2.1.0
+transformers>=4.46.3
+uvicorn==0.24.0

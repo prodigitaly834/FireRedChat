@@ -1,0 +1,6 @@
+[submodule "agents-playground"]
+	path = agents-playground
+	url = https://github.com/fireredchat-submodules/agents-playground.git
+[submodule "agents"]
+	path = agents
+	url = https://github.com/fireredchat-submodules/agents.git

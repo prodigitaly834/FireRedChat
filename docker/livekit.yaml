@@ -1,0 +1,11 @@
+port: 7880
+
+redis:
+  address: 0.0.0.0:6379
+  password: dev123456
+  db: 0
+
+rtc:
+  port_range_start: 50000
+  port_range_end: 60000
+  tcp_port: 7881

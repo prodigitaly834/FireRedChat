@@ -1,0 +1,53 @@
+version: '3.8'
+
+x-shared-env: &shared-api-worker-env
+  REDIS_HOST: ${REDIS_HOST:-redis}
+  REDIS_PORT: ${REDIS_PORT:-6379}
+  REDIS_USERNAME: ${REDIS_USERNAME:-}
+  REDIS_PASSWORD: ${REDIS_PASSWORD:-dev123456}
+  REDIS_USE_SSL: ${REDIS_USE_SSL:-false}
+  REDIS_DB: ${REDIS_DB:-0}
+  REDIS_USE_SENTINEL: ${REDIS_USE_SENTINEL:-false}
+  REDIS_SENTINELS: ${REDIS_SENTINELS:-}
+  REDIS_SENTINEL_SERVICE_NAME: ${REDIS_SENTINEL_SERVICE_NAME:-}
+  REDIS_SENTINEL_USERNAME: ${REDIS_SENTINEL_USERNAME:-}
+  REDIS_SENTINEL_PASSWORD: ${REDIS_SENTINEL_PASSWORD:-}
+  REDIS_SENTINEL_SOCKET_TIMEOUT: ${REDIS_SENTINEL_SOCKET_TIMEOUT:-0.1}
+  REDIS_USE_CLUSTERS: ${REDIS_USE_CLUSTERS:-false}
+  REDIS_CLUSTERS: ${REDIS_CLUSTERS:-}
+  REDIS_CLUSTERS_PASSWORD: ${REDIS_CLUSTERS_PASSWORD:-}
+
+services:
+  redis:
+    image: redis:6-alpine
+    restart: always
+    network_mode: host
+    environment:
+      REDISCLI_AUTH: ${REDIS_PASSWORD:-dev123456}
+    volumes:
+      - ./redis/data:/data
+    command: redis-server --requirepass ${REDIS_PASSWORD:-dev123456}
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+
+  livekitrtc:
+    image: livekit/livekit-server:latest
+    container_name: livekitrtc
+    entrypoint: ["sh", "-c", "livekit-server --dev --config /livekit.yaml --bind 0.0.0.0"]
+    network_mode: host
+    volumes:
+      - ./livekit.yaml:/livekit.yaml:ro
+    environment:
+      <<: *shared-api-worker-env
+    restart: unless-stopped
+
+  livekitplay:
+    image: node:20-alpine
+    container_name: livekitplay
+    network_mode: host
+    volumes:
+      - ../agents-playground:/agents-playground
+    working_dir: /agents-playground
+    entrypoint: ["sh", "-c", "cp /agents-playground/.env.dev /agents-playground/.env.local && npm install && npm run build && npm run start -- --port 3000"]
+    environment:
+      <<: *shared-api-worker-env
