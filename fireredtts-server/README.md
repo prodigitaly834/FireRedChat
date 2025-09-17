@@ -12,7 +12,7 @@ Accelerated FireRedTTS1 with RedServing
 
 2. Run service:
    ```bash
-   docker run -td --name ttsserver --security-opt seccomp:unconfined -v "$(pwd)/tts_4_chat/pretrained_models:/workspace/models/redtts" -p 8081:8081 fireredchat/fireredtts1-server:latest bash /workspace/run.sh --llm --svc_config_path /workspace/svc.yaml --port 8081 --http_uri=/v1/audio/speech
+   docker run -td --name ttsserver --security-opt seccomp:unconfined -v "$(pwd)/tts_4_chat/pretrained_models:/workspace/models/redtts" -p 8081:8081 crpi-byegxpnnsibfy3j1.cn-shanghai.personal.cr.aliyuncs.com/fireredchat/fireredtts1-server:latest bash /workspace/run.sh --llm --svc_config_path /workspace/svc.yaml --port 8081 --http_uri=/v1/audio/speech
    ```
 
 ## API Usage
