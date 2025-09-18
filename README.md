@@ -69,7 +69,7 @@ docker-compose up -d
 
 - **Agent Service**:
 
-  [Agent Service README](./agents/README.md)
+  [Agent Service README](https://github.com/fireredchat-submodules/agents/blob/fireredchat/README.md)
 
 
 ## Acknowledgements

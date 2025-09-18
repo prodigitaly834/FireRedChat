@@ -1,7 +1,5 @@
-version: '3.8'
-
 x-shared-env: &shared-api-worker-env
-  REDIS_HOST: ${REDIS_HOST:-redis}
+  REDIS_HOST: ${REDIS_HOST:-0.0.0.0:6379}
   REDIS_PORT: ${REDIS_PORT:-6379}
   REDIS_USERNAME: ${REDIS_USERNAME:-}
   REDIS_PASSWORD: ${REDIS_PASSWORD:-dev123456}
@@ -21,7 +19,8 @@ services:
   redis:
     image: redis:6-alpine
     restart: always
-    network_mode: host
+    ports:
+      - "6379:6379"
     environment:
       REDISCLI_AUTH: ${REDIS_PASSWORD:-dev123456}
     volumes:
@@ -33,7 +32,7 @@ services:
   livekitrtc:
     image: livekit/livekit-server:latest
     container_name: livekitrtc
-    entrypoint: ["sh", "-c", "livekit-server --dev --config /livekit.yaml --bind 0.0.0.0"]
+    entrypoint: ["sh", "-c", "/livekit-server --dev --config /livekit.yaml --bind 0.0.0.0"]
     network_mode: host
     volumes:
       - ./livekit.yaml:/livekit.yaml:ro
