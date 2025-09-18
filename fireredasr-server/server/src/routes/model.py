@@ -6,7 +6,7 @@ from collections import OrderedDict
 # Add FireRedASR to Python path
 sys.path.append(os.getenv('FIREREDASR_PATH'))
 
-from fireredasr.models.fireredasr import FireRedAsr, FireRedAsrConfig
+from src.routes.fireredasr import FireRedAsr, FireRedAsrConfig
 from redpost.models.redpost import RedPost, RedPostConfig
 
 from fastapi import File, UploadFile, APIRouter

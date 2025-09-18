@@ -6,15 +6,17 @@ A FastAPI-based microservice for speech-to-text transcription using FireRedASR.
 
 1. Download the FireRedASR model:
    ```bash
+   cd server
    mkdir -p models
    # Download FireRedASR-AED-L & PUNC-BERT model and place it in models/
    git clone https://huggingface.co/FireRedTeam/FireRedChat-punc models/PUNC-BERT
+   pushd models/PUNC-BERT && git lfs pull && popd
    git clone https://huggingface.co/FireRedTeam/FireRedASR-AED-L models/FireRedASR-AED-L
+   pushd models/FireRedASR-AED-L && git lfs pull && popd
    ```
 
 2. Build the Docker image:
    ```bash
-   cd server
    docker build -t fireredasr-service .
    ```
 

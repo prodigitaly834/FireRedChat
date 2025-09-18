@@ -9,7 +9,7 @@ RUN apt install -y git libsndfile1 ffmpeg && \
 
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt --index-url https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host https://pypi.tuna.tsinghua.edu.cn
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Clone FireRedASR repository
 RUN git clone https://github.com/FireRedTeam/FireRedASR.git fireredasr

@@ -44,6 +44,10 @@ FireRedChat offers a fully self-hosted solution for building real-time voice AI 
 Explore the [demo](https://fireredteam.github.io/demos/firered_chat/) or follow the deployment steps below to get started.
 
 ### Step 1: Livekit RTC Service Configuration
+```bash
+git clone --recurse-submodules https://github.com/FireRedTeam/FireRedChat.git
+```
+
 If you have a domain name, generate configuration files:
 ```bash
 mkdir output
@@ -51,7 +55,7 @@ docker pull livekit/generate
 docker run --rm -it -v $PWD:/output livekit/generate
 ```
 
-For local machine development (Redis, RTC, & WebUI):
+For local machine development (Redis, RTC, & WebUI), startup with [docker-compose](https://github.com/docker/compose/releases):
 ```bash
 cd docker
 docker-compose up -d
