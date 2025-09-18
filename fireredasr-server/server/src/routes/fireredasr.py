@@ -4,6 +4,7 @@ import time
 
 import torch
 
+import sys
 sys.path.append(os.getenv('FIREREDASR_PATH'))
 
 from fireredasr.data.asr_feat import ASRFeatExtractor
