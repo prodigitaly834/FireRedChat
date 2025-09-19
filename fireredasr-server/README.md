@@ -17,6 +17,13 @@ A FastAPI-based microservice for speech-to-text transcription using FireRedASR.
 
 2. Build the Docker image:
    ```bash
+   # 1. Modify Dockerfile based on your CUDA version
+   #    for Ampere and newer GPUs
+   #       FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
+   #    for Volta GPUs (3080, V100)
+   #       FROM pytorch/pytorch:2.5.1-cuda11.8-cudnn9-runtime
+   # 2. Use tencentyun pypi mirror (in mainland China)
+   #       RUN pip install --no-cache-dir -r requirements.txt --index-url http://mirrors.tencentyun.com/pypi/simple/ --trusted-host mirrors.tencentyun.com
    docker build -t fireredasr-service .
    ```
 
@@ -24,6 +31,7 @@ A FastAPI-based microservice for speech-to-text transcription using FireRedASR.
    ```bash
    docker run -d \
      -p 8000:8000 \
+     --gpus '"cuda:0"' \
      -v $(pwd)/models:/app/models \
      fireredasr-service
    ```
@@ -43,8 +51,7 @@ A FastAPI-based microservice for speech-to-text transcription using FireRedASR.
 curl -X POST \
   http://localhost:8000/audio/transciptions \
   -H "Content-Type: multipart/form-data" \
-  -F "file=@audio.wav" \
-  -F "media_type=application/json"
+  -F file="@audio.wav"
 ```
 
 **Response**:
