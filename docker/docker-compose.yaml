@@ -33,7 +33,11 @@ services:
     image: livekit/livekit-server:latest
     container_name: livekitrtc
     entrypoint: ["sh", "-c", "/livekit-server --dev --config /livekit.yaml --bind 0.0.0.0"]
-    network_mode: host
+    ports:
+      - "7880:7880"
+      - "7881:7881"
+      - "7882:7882"
+      - "50000-60000:50000-60000"
     volumes:
       - ./livekit.yaml:/livekit.yaml:ro
     environment:
@@ -43,10 +47,10 @@ services:
   livekitplay:
     image: node:20-alpine
     container_name: livekitplay
-    network_mode: host
+    ports:
+      - 3000:3000
     volumes:
       - ../agents-playground:/agents-playground
     working_dir: /agents-playground
     entrypoint: ["sh", "-c", "cp /agents-playground/.env.dev /agents-playground/.env.local && npm install && npm run build && npm run start -- --port 3000"]
-    environment:
-      <<: *shared-api-worker-env
+    
