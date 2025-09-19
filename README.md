@@ -103,6 +103,12 @@ Launch the additional servers required for voice processing and AI functionality
 - **LLM Service**
   Deploy a self-hosted LLM server to power the AI agents. Options include [Ollama](https://ollama.com) for a lightweight setup, [vLLM](https://docs.vllm.ai/en/latest/deployment/docker.html) for high-performance inference, or additionally with [Dify](https://github.com/langgenius/dify) for advanced workflows.
 
+```bash
+# ollama example, refer to https://ollama.com for official guide
+curl -fsSL https://ollama.com/install.sh | sh
+ollama run qwen2.5
+```
+
 ### Step 3: Start AI-Agents Service
 
 - **Agents Service** (AI-Agent Bot Server):
