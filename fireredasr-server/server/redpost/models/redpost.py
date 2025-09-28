@@ -174,7 +174,7 @@ def load_punc_bert_model(model_dir):
     model_path = os.path.join(model_dir, "model.pth.tar")
     package = torch.load(model_path, map_location=lambda storage, loc: storage, weights_only=False)
     package["args"].bert = None
-    package["args"].pretrained_bert = os.path.join(model_dir, "chinese-lert-base-tokenizer")
+    package["args"].pretrained_bert = os.path.join(model_dir, "chinese-lert-base")
     model = RedPuncBert.from_args(package["args"])
     model.load_state_dict(package["model_state_dict"], strict=False)
     model.eval()
@@ -183,7 +183,7 @@ def load_punc_bert_model(model_dir):
 
 class ModelIO:
     def __init__(self, model_dir):
-        self.tokenizer = HfBertTokenizer(os.path.join(model_dir, "chinese-lert-base-tokenizer"))
+        self.tokenizer = HfBertTokenizer(os.path.join(model_dir, "chinese-lert-base"))
         self.in_dict = TokenDict(os.path.join(model_dir, "chinese-bert-wwm-ext_vocab.txt"), unk="[UNK]")
         self.out_dict = TokenDict(os.path.join(model_dir, "out_dict"))
         self.INPUT_IGNORE_ID = self.in_dict["[PAD]"]

@@ -10,6 +10,7 @@ A FastAPI-based microservice for speech-to-text transcription using FireRedASR.
    mkdir -p models
    # Download FireRedASR-AED-L & PUNC-BERT model and place it in models/
    git clone https://huggingface.co/FireRedTeam/FireRedChat-punc models/PUNC-BERT
+   git clone https://huggingface.co/hfl/chinese-lert-base models/PUNC-BERT/chinese-lert-base
    pushd models/PUNC-BERT && git lfs pull && popd
    git clone https://huggingface.co/FireRedTeam/FireRedASR-AED-L models/FireRedASR-AED-L
    pushd models/FireRedASR-AED-L && git lfs pull && popd
